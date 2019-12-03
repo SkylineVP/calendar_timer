@@ -5,7 +5,7 @@ import createCalendar from "./createCalendar.js";
 
 
 const month = new model.Month( new Date() );
-
+console.log(month);
 document.body.appendChild( createCalendar(month) );
 
 /*

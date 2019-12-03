@@ -30,7 +30,6 @@ class Week {
         monday.setDate(monday.getDate() - (weekDayNumber ? weekDayNumber - 1 : 6));// 1 :  1 2 3 4 5 6 0
         return monday;
     }
-
 }
 
 
