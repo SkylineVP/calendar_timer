@@ -4,21 +4,18 @@
 
 
 function createTableElement(day) {
-    day.days.forEach(day=>{
-        const element = document.createElement("td");
-        element.innerText=day.toLocaleString('ru', {weekday: 'short'});
-    });
+    const element = document.createElement("td");
+    element.innerText=day.date.getDate();
+    return element;
 
 
 }
 
-function createBodyTableRow(month) {
-    month.weeks.forEach(value =>{
-        const bodyTableRow= document.createElement("tr");
+function createBodyTableRow(day) {
+    const bodyTableRow= document.createElement("tr");
+    day.forEach(value=>{
         bodyTableRow.appendChild(createTableElement(value));
-
-    })
-
+    });
 
     return bodyTableRow;
 }
@@ -26,7 +23,10 @@ function createBodyTableRow(month) {
 export default function (month) {
 
     const calendarBody = document.createElement('tbody');
-    calendarBody.appendChild(createBodyTableRow(month));
+    month.weeks.forEach(value =>{
+        calendarBody.appendChild(createBodyTableRow(value.days));
+    });
+
 
 
     return calendarBody;
